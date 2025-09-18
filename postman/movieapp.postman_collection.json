@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "3fe91a78-9145-4411-86e4-4bc925f454a5",
+		"name": "movieapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33535656"
+	},
+	"item": [
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIkFVVEhPUklUSUVTIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1ODE1NDk1MywiZXhwIjoxNzU4MjQxMzUzfQ.iqGSHe5wpCScqF2NS3bWD-EO8g25fiZx6E5qjAJz7pw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/admin/movies/search?keyword=batman&page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"admin",
+								"movies",
+								"search"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "batman"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIkFVVEhPUklUSUVTIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1ODEzODMyNCwiZXhwIjoxNzU4MjI0NzI0fQ.lIaH18tEt_8GPrg4u05BBpMI6HRh0Ao1DpQdhylw1Yc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"address\": \"test test\",\r\n    \"country\": \"egy\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/movie/Inception",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"movie",
+								"Inception"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIkFVVEhPUklUSUVTIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1ODE1NDk1MywiZXhwIjoxNzU4MjQxMzUzfQ.iqGSHe5wpCScqF2NS3bWD-EO8g25fiZx6E5qjAJz7pw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Batman Begins\",\r\n    \"year\":\"2005\",\r\n    \"imdbId\":\"tt037sa27s84\",\r\n    \"type\":\"movie\",\r\n    \"poster\":\"https://m.media-amazon.com/images/M/MV5BODIyMDdhNTgtNDlmOC00MjUxLWE2NDItODA5MTdkNzY3ZTdhXkEyXkFqcGc@._V1_SX300.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/admin/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"admin",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIkFVVEhPUklUSUVTIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1ODE1NDk1MywiZXhwIjoxNzU4MjQxMzUzfQ.iqGSHe5wpCScqF2NS3bWD-EO8g25fiZx6E5qjAJz7pw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/admin/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"admin",
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsIkFVVEhPUklUSUVTIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1ODE1NDk1MywiZXhwIjoxNzU4MjQxMzUzfQ.iqGSHe5wpCScqF2NS3bWD-EO8g25fiZx6E5qjAJz7pw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/admin/movies/tt1877830",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"admin",
+								"movies",
+								"tt1877830"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "find id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiQVVUSE9SSVRJRVMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTgxNTIwNzUsImV4cCI6MTc1ODIzODQ3NX0.l4Uxl6gCSTGRe1VmtbtWhlqv68MwZL_-BCZjFzmw-fw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/user/movies/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"movies",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "final all",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiQVVUSE9SSVRJRVMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTgxNTIwNzUsImV4cCI6MTc1ODIzODQ3NX0.l4Uxl6gCSTGRe1VmtbtWhlqv68MwZL_-BCZjFzmw-fw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/user/movies?searchKey=an",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"user",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "searchKey",
+									"value": "an"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiQVVUSE9SSVRJRVMiOiJST0xFX1VTRVIiLCJpYXQiOjE3NTgxOTAxNzAsImV4cCI6MTc1ODI3NjU3MH0.kIKoBHGzpFcgoGFAn2VXFChlayY8FAWYTh50kyRllgg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movieId\": 18,\r\n    \"stars\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/rating",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"rating"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

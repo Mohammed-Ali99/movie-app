@@ -1,0 +1,22 @@
+<div class="detail-container">
+  <app-toast></app-toast>
+  <button class="back" (click)="back()">← Back</button>
+
+  <div *ngIf="loading()" class="loading">Loading movie…</div>
+  <div *ngIf="!loading() && error()" class="error">{{ error() }}</div>
+
+  <div *ngIf="!loading() && !error() && movie() as m" class="card">
+    <img class="poster" [src]="m.poster" [alt]="m.title" />
+    <div class="info">
+      <h2 class="title">{{ m.title }}</h2>
+      <div class="meta">
+        <span class="year">{{ m.year }}</span>
+        <span class="type">{{ m.type }}</span>
+      </div>
+      <div class="ids">
+        <div><strong>ID:</strong> {{ m.id }}</div>
+        <div><strong>IMDB:</strong> {{ m.imdbId }}</div>
+      </div>
+    </div>
+  </div>
+</div>

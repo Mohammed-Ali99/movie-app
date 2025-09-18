@@ -1,0 +1,28 @@
+<div class="home-container">
+  <app-toast></app-toast>
+  <h2>Movies</h2>
+
+  <p *ngIf="loading()">Loading movies…</p>
+  <p class="error" *ngIf="error()">{{ error() }}</p>
+
+  <div class="grid" *ngIf="!loading() && !error()">
+    <div class="card" *ngFor="let m of movies(); trackBy: trackByImdb">
+      <img class="poster" [src]="m.Poster" [alt]="m.Title" (error)="onImgError($event)" />
+      <div class="info">
+        <div class="title">{{ m.Title }}</div>
+        <div class="meta">
+          <span class="year">{{ m.Year }}</span>
+          <span class="type">{{ m.Type }}</span>
+        </div>
+        <div class="actions">
+          <button class="btn add" (click)="addMovie(m)" [disabled]="busyAdd().has(m.imdbID)">
+            {{ busyAdd().has(m.imdbID) ? 'Adding…' : 'Add' }}
+          </button>
+          <button class="btn danger" (click)="deleteMovie(m)" [disabled]="busyDelete().has(m.imdbID)">
+            {{ busyDelete().has(m.imdbID) ? 'Deleting…' : 'Delete' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

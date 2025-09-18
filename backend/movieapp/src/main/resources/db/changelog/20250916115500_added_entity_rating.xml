@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="20250916115500" author="mohamed.ali">
+
+        <createSequence incrementBy="1" sequenceName="RATING_SEQ" startValue="1"/>
+
+        <createTable tableName="ratings">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="movie_id" type="BIGINT"/>
+            <column name="stars" type="BIGINT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="ratings"
+                                 baseColumnNames="user_id"
+                                 referencedTableName="users"
+                                 referencedColumnNames="id"
+                                 constraintName="FK_RATINGS_ON_USERS"/>
+
+        <addForeignKeyConstraint baseTableName="ratings"
+                                 baseColumnNames="movie_id"
+                                 referencedTableName="movies"
+                                 referencedColumnNames="id"
+                                 constraintName="FK_RATINGS_ON_MOVIES"/>
+    </changeSet>
+
+</databaseChangeLog>

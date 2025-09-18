@@ -1,0 +1,34 @@
+<div class="home-container">
+  <app-toast></app-toast>
+  <h2>Your Movies</h2>
+
+  <div class="toolbar">
+    <input type="text" placeholder="Search (optional)" [value]="searchKey()" (input)="onSearchInput($event)" />
+    <button (click)="onSearchSubmit()">Search</button>
+  </div>
+
+  <p *ngIf="loading()">Loading movies…</p>
+  <p class="error" *ngIf="error()">{{ error() }}</p>
+
+  <div class="grid" *ngIf="!loading() && !error()">
+    <div class="card" *ngFor="let m of movies(); trackBy: trackByImdb" (click)="openDetails(m)" style="cursor: pointer;" role="button" tabindex="0">
+      <img class="poster" [src]="m.Poster" [alt]="m.Title" (error)="onImgError($event)" />
+      <div class="info">
+        <div class="title">{{ m.Title }}</div>
+        <div class="meta">
+          <span class="year">{{ m.Year }}</span>
+          <span class="type">{{ m.Type }}</span>
+        </div>
+        <div class="rating" (click)="$event.stopPropagation()">
+          <button class="star"
+                  *ngFor="let s of [1,2,3,4,5]"
+                  [disabled]="!m.id || (m.id && busyRating().has(m.id))"
+                  (click)="rateMovie(m, s, $event)"
+                  [attr.aria-label]="'Rate ' + s + ' star'">
+            ★
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
